@@ -69,7 +69,10 @@
             <a href="/" class="brand-link">
                 <img src="{{ asset('cdn/img/logo.png') }}" alt="Dashboard"
                     class="brand-image elevation-2 bg-white p-1 rounded" />
-                <span class="brand-text font-weight-light text-light">Pemira ITTP</span>
+                <div class="flex">
+                    <span class="brand-text font-weight-light text-light">Posbindu</span>
+                    <small class="text-light">Karanggintung</small>
+                </div>
             </a>
 
             <!-- Sidebar -->
@@ -86,9 +89,8 @@
         <!-- Main Footer -->
         <footer class="main-footer text-center">
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2021
-                <a href="#">AdminLTE.io</a>.</strong>
-            All rights reserved.
+            <strong>Copyright &copy; KKN T ITTP Karanggintung
+                <a href="#"></a>.</strong>
         </footer>
     </div>
     <!-- ./wrapper -->
