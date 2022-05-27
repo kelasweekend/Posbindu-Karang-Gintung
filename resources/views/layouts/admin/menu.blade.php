@@ -32,6 +32,15 @@
                     </p>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="{{ route('rekap')}}" class="nav-link text-light {{ Request::segment(1) == 'excell' ? 'active' : null }}">
+                    <i class="nav-icon fas fa-file-excel"></i>
+                    <p>
+                        Rekap Pemeriksaan
+                    </p>
+                </a>
+            </li>
         @endif
 
     </ul>

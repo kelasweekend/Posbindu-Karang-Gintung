@@ -18,4 +18,6 @@ class IndexController extends Controller
         $data = Pasien::select('nama_lengkap', 'id')->get();
         return view('pasien.pemeriksaan', compact('data'));
     }
+
+   
 }

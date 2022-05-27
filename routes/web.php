@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('kader')->group(function () {
+Route::prefix('kader')->middleware('auth')->group(function () {
     Route::get('/', [App\Http\Controllers\Kader\IndexController::class, 'index'])->name('kader');
     // bagian pasien
     Route::get('pasien', [App\Http\Controllers\Kader\PasienController::class, 'index'])->name('kader.pasien');
@@ -35,3 +35,6 @@ Route::prefix('kader')->group(function () {
     Route::get('pasien/periksa', [App\Http\Controllers\Kader\IndexController::class, 'pemeriksaan'])->name('kader.periksa.pasien');
     Route::post('pasien/periksa', [App\Http\Controllers\Kader\PeriksaController::class, 'store'])->name('kader.cek.pasien');
 });
+
+Route::get('/excell', [App\Http\Controllers\ExcellController::class, 'index'])->name('rekap');
+Route::post('/excell', [App\Http\Controllers\ExcellController::class, 'rekap'])->name('excell');

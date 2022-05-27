@@ -66,6 +66,6 @@ class PeriksaController extends Controller
 
         // dd($request->all());
         Pemeriksaan::create($request->all());
-        return redirect()->route('kader.pasien')->with('success', 'Keren');
+        return redirect()->route('kader.pasien')->with('success', 'Data Pemeriksa Berhasil disimpan');
     }
 }

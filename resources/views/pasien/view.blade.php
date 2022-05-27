@@ -97,42 +97,48 @@
                     </div>
                 </div>
 
-                <div class="card card-success">
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between">
-                            <h3 class="card-title">Rekap Pemeriksaan</h3>
-                            <button class="btn btn-light btn-sm">Cetak PDF</button>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between">
+                                    <h3 class="card-title">Rekap Pemeriksaan</h3>
+                                    <button class="btn btn-light btn-sm">Cetak PDF</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Tanggal Pemeriksaan</th>
+                                            <th scope="col">Sistol</th>
+                                            <th scope="col">Diastol</th>
+                                            <th scope="col">Tinggi</th>
+                                            <th scope="col">Berat</th>
+                                            <th scope="col">Lingkar</th>
+                                            <th scope="col">Gula</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($riwayat as $rk)
+                                            <tr>
+                                                <th scope="row">{{ $loop->iteration }}</th>
+                                                <th>{{ $rk->tanggal }}</th>
+                                                <td>{{ $rk->sistol }}</td>
+                                                <td>{{ $rk->diastol }}</td>
+                                                <td>{{ $rk->tb}} cm</td>
+                                                <td>{{ $rk->bb }} Kg</td>
+                                                <td>{{ $rk->perut}} cm</td>
+                                                <td>{{ $rk->gula }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>Nama Lengkap</td>
-                                    <td>:</td>
-                                    <td>@mdo</td>
-                                    <td>Tanggal Lahir</td>
-                                    <td>:</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>Nama Lengkap</td>
-                                    <td>:</td>
-                                    <td>@mdo</td>
-                                    <td>Tanggal Lahir</td>
-                                    <td>:</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>Nama Lengkap</td>
-                                    <td>:</td>
-                                    <td>@mdo</td>
-                                    <td>Tanggal Lahir</td>
-                                    <td>:</td>
-                                    <td>@fat</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>

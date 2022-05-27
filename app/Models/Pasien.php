@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Pasien extends Model
 {
@@ -23,4 +24,13 @@ class Pasien extends Model
         'pernikahan',
         'alamat',
     ];
+
+    public function rekappasien($id)
+    {
+        return DB::table('pemeriksaans')
+            ->select('pemeriksaans.*', 'pasiens.nama_lengkap')
+            ->join('pasiens', 'pasiens.id', '=', 'pemeriksaans.pasien_id')
+            ->where(['pemeriksaans.pasien_id' => $id])
+            ->get();
+    }
 }

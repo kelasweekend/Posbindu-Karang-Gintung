@@ -4,11 +4,16 @@ namespace App\Http\Controllers\Kader;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pasien;
+use App\Models\Pemeriksaan;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
 class PasienController extends Controller
 {
+    public function __construct()
+    {
+        $this->pasien = new Pasien();
+    }
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -35,7 +40,9 @@ class PasienController extends Controller
             return redirect()->route('kader.pasien')->with('galat', 'Pasien Tidak Tersedia !');
         } else {
             # jika tidak kosong maka
-            return view('pasien.view', compact('data'));
+            $riwayat = Pemeriksaan::where('pasien_id', $data->id)->get();
+            return view('pasien.view', compact('data', 'riwayat'));
+            // dd($rekap);
         }
         
     }
